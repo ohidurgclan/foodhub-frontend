@@ -1,5 +1,4 @@
 
-import Category from "@/components/HomeComponents/category";
 import FeaturedRestaurants from "@/components/HomeComponents/Featured";
 import HeroSection from "@/components/HomeComponents/HeroSection";
 import OurWorks from "@/components/HomeComponents/OurWorks";
@@ -10,7 +9,6 @@ export default function Home() {
   return (
     <div className="min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <HeroSection />
-      <Category />
       <FeaturedRestaurants />
       <OurWorks />
       <Testimonial10 />
