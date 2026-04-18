@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Search, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [query, setQuery] = useState("");
@@ -14,7 +15,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative bg-orange-50 overflow-hidden">
+    <section className="relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 flex flex-col-reverse lg:flex-row items-center gap-12">
         {/* Left — copy + search */}
         <div className="flex-1 text-center lg:text-left">
@@ -62,8 +63,8 @@ export default function HeroSection() {
         {/* Right — illustration placeholder */}
         <div className="flex-1 flex justify-center">
           <div className="relative w-72 h-72 sm:w-96 sm:h-96">
-            <img
-              src="/hero-food.png"
+            <Image
+              src="/heroImage.png"
               alt="Delicious food delivered"
               className="w-full h-full object-contain drop-shadow-xl"
             />

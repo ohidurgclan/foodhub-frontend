@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Star, Clock, ChevronRight } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 interface Restaurant {
@@ -96,7 +97,7 @@ export default function FeaturedRestaurants() {
               <div className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer group">
                 {/* Image */}
                 <div className="relative h-44 overflow-hidden bg-gray-100">
-                  <img
+                  <Image
                     src={r.image}
                     alt={r.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"

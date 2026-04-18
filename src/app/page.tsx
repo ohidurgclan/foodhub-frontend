@@ -1,6 +1,8 @@
-import Example from "@/components/carousel-standard-4";
-import Category from "@/components/HomeComponents/Category";
+
+import Category from "@/components/HomeComponents/category";
+import FeaturedRestaurants from "@/components/HomeComponents/Featured";
 import HeroSection from "@/components/HomeComponents/HeroSection";
+import OurWorks from "@/components/HomeComponents/OurWorks";
 import { Testimonial10 } from "@/components/testimonial10";
 
 
@@ -9,7 +11,8 @@ export default function Home() {
     <div className="min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <HeroSection />
       <Category />
-      <Example/>
+      <FeaturedRestaurants />
+      <OurWorks />
       <Testimonial10 />
     </div>
   );
