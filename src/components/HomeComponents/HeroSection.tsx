@@ -65,6 +65,8 @@ export default function HeroSection() {
           <div className="relative w-72 h-72 sm:w-96 sm:h-96">
             <Image
               src="/heroImage.png"
+              width={400}
+              height={400}
               alt="Delicious food delivered"
               className="w-full h-full object-contain drop-shadow-xl"
             />

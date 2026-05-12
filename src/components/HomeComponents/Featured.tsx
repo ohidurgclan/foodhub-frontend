@@ -99,6 +99,8 @@ export default function FeaturedRestaurants() {
                 <div className="relative h-44 overflow-hidden bg-gray-100">
                   <Image
                     src={r.image}
+                    width={400}
+                    height={300}
                     alt={r.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />

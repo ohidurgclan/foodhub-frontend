@@ -1,6 +1,6 @@
 "use client";
 
-import { useAppSelector } from "@/store";
+import { authClient } from "@/lib/auth-client";
 import { Role } from "@/types";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -11,21 +11,29 @@ interface Props {
 }
 
 export default function ProtectedRoute({ children, allowedRoles }: Props) {
-  const { user, loading } = useAppSelector((s) => s.auth);
+  const { data: session, isPending } = authClient.useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (!loading && !user) router.replace("/login");
-    if (!loading && user && allowedRoles && !allowedRoles.includes(user.role)) {
-      router.replace("/");
+    if (!isPending && !session) {
+      router.replace("/login");
+      return;
     }
-  }, [user, loading, allowedRoles, router]);
+    if (!isPending && session && allowedRoles) {
+      const role = session.user.role as Role;
+      if (!allowedRoles.includes(role)) router.replace("/");
+    }
+  }, [session, isPending, allowedRoles, router]);
 
-  if (loading || !user) return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
-    </div>
-  );
+  if (isPending) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (!session) return null;
 
   return <>{children}</>;
 }

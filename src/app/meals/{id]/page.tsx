@@ -10,6 +10,7 @@ import { ShoppingCart, Star, ArrowLeft, MapPin } from "lucide-react";
 import { useAppDispatch } from "@/store";
 import { addToCart } from "@/store/slices/cartSlice";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function MealDetailPage() {
   const { id } = useParams<{ id: string }>();
@@ -48,7 +49,7 @@ export default function MealDetailPage() {
           {/* Image */}
           <div className="h-64 sm:h-80 bg-gray-100 relative">
             {meal.image ? (
-              <img src={meal.image} alt={meal.name} className="w-full h-full object-cover" />
+              <Image src={meal.image} alt={meal.name} className="w-full h-full object-cover" />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-6xl">🍽️</div>
             )}
