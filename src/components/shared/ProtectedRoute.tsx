@@ -20,7 +20,7 @@ export default function ProtectedRoute({ children, allowedRoles }: Props) {
       return;
     }
     if (!isPending && session && allowedRoles) {
-      const role = session.user.role as Role;
+    const role = (session.user as unknown as { role: Role }).role;
       if (!allowedRoles.includes(role)) router.replace("/");
     }
   }, [session, isPending, allowedRoles, router]);
